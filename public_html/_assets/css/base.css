@@ -1,0 +1,220 @@
+/* Resetting styles so we start on level ground */
+a,abbr,address,article,aside,audio,
+b,blockquote,body,button,canvas,caption,cite,code,
+dd,del,details,dfn,div,dl,dt,em,embed,
+fieldset,figcaption,figure,footer,form,
+h1,h2,h3,h4,h5,h6,header,hgroup,html,
+i,iframe,img,ins,kbd,label,legend,li,
+mark,menu,nav,object,ol,output,p,pre,q,ruby,
+s,samp,section,small,span,strong,sub,summary,sup,
+table,tbody,td,tfoot,th,thead,time,tr,ul,var,video{ margin:0; padding:0; border:0; font-size:100%; vertical-align:baseline; background:transparent; }
+
+/* HTML5 display-role reset for older browsers */
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{ display:block; }
+
+/* More times than not, we want an element to have position: relative set */
+* { position:relative; }
+
+/* Apply a natural box layout model to all elements (width does not include borders or padding) */
+* { -moz-box-sizing:border-box; -webkit-box-sizing:border-box; box-sizing:border-box; }
+
+/* Setting foundation styles to begin building from */
+html{ overflow-y:scroll; }
+body{ background:#fff; }
+html,body{ height:100%; color:#111; font-size:62.5%; line-height:1.4; }
+
+/* Default link styling */
+img,a img,:link img,:visited img{ border:none; }
+a,embed,object{ outline:0; }
+
+/* Setting a few margins */
+address,blockquote,dl,fieldset,form,figure,ol,p,pre,table,ul{ margin-top:1em; }
+address:first-child,blockquote:first-child,dl:first-child,fieldset:first-child,form:first-child,figure:first-child,ol:first-child,p:first-child,pre:first-child,table:first-child,ul:first-child{ margin-top:0; }
+/* Titles should be close to what they describe */
+h1,h2,h3,h4,h5,h6{ margin-bottom:.25em; }
+ol,ul{ margin-left:1.5em; }
+dd{ margin-left:1.5em; }
+
+/* Some font-related basics */
+/* Use a font for various icons and symbols - http://www.entypo.com/ */
+@font-face{ font-family:'entypo'; font-weight:normal; font-style:normal;
+  src:url('../fonts/entypo.eot');
+  src:url('../fonts/entypo.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/entypo.woff') format('woff'),
+      url('../fonts/entypo.ttf') format('truetype'); }
+/* Social media icons */
+@font-face{ font-family:'entypo-social'; font-weight:normal; font-style:normal;
+  src:url('../fonts/entypo-social.eot');
+  src:url('../fonts/entypo-social.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/entypo-social.woff') format('woff'),
+      url('../fonts/entypo-social.ttf') format('truetype'); }
+h1,h2,h3,h4,h5,h6{ font-weight:bold; line-height:1.25; }
+/* Title sizing */
+h1{ font-size:200%; }
+h2{ font-size:170%; }
+h3{ font-size:140%; }
+h4{ font-size:120%; }
+h5,h6{ font-size:100%; }
+
+/* Disable common ligatures, usually on by default. Fix for bug/display issue in Firefox */
+* { -moz-font-feature-settings:'liga' 0; }
+
+/* Customize the text selection and color when text is highlighted on the page */
+::selection{ color:#fff; background:#000; }
+
+b,strong{ font-weight:bold; }
+em,i{ font-style:italic; }
+
+abbr[title]{ font-variant:normal; color:inherit; cursor:help; border-bottom:1px dotted; }
+address,caption,code{ font-style:normal; }
+blockquote,q{ quotes:none; }
+blockquote:before,blockquote:after,q:before,q:after{ content:''; content:none; }
+caption{ font-weight:normal; text-align:left; }
+code,pre{ padding:.125em .25em; font-family:consolas,'lucida console','dejavu sans mono',monaco,menlo,monospace; }
+code{ white-space:nowrap; }
+del,s{ color:inherit; text-decoration:line-through; opacity:.5; }
+dfn[title]{ font-style:italic; }
+figcaption{ font-style:italic; text-align:center; font-size:90%; }
+hr{ display:block; margin:1em 0; padding:0; height:1px; border:0; border-top:1px solid; }
+ins{ color:inherit; font-style:italic; text-decoration:underline; }
+pre{ white-space:pre; white-space:pre-wrap; word-wrap:break-word; word-break:break-all; }
+small{ font-size:75%; }
+
+/* Alignment of subscript & supercript */
+sub,sup{ position:relative; font-size:75%; line-height:0; vertical-align:baseline; }
+sub{ bottom: -0.25em; }
+sup{ top: -0.5em; }
+
+/* Lists */
+nav ul{ margin:0; list-style:none; }
+article ul li,article ol li{ margin-top:.5em; list-style-position:outside; }
+article ul li:first-child,article ol li:first-child{ margin-top:0; }
+article li ul{ margin-top:.5em; }
+article ol li li{ list-style-type:lower-alpha; }
+
+/* Images */
+img{ max-width:100%; height:auto; vertical-align:middle; box-sizing:border-box; -ms-interpolation-mode:bicubic; }
+/* Corrects overflow displayed oddly in IE9 */
+svg:not(:root){ overflow:hidden; }
+
+/* Form elements */
+fieldset{ padding:.35em .625em 0; border:1px solid; }
+legend{ padding:0 .25em; border:0; white-space:normal; }
+select,textarea,input[type='color'],input[type='date'],input[type='datetime'],input[type='datetime-local'],
+input[type='email'],input[type='email'],input[type='month'],input[type='number'],input[type='password'],input[type='search'],
+input[type='tel'],input[type='text'],input[type='time'],input[type='week'],input[type='url']{ padding:3px; background:#eee; border:1px solid; }
+input[type='search']{ -webkit-appearance:textfield; box-sizing:content-box; }
+input[type='checkbox'],input[type='radio']{ margin:.3rem .4rem 0 0; vertical-align:top; box-sizing:border-box; }
+input[type='file'],input[type='image'],input[type='submit'],input[type='reset'],input[type='button'],input[type='radio'],input[type='checkbox'] { width:auto; }
+textarea{ margin-bottom:1em; min-height:4em; resize:vertical; overflow:auto; }
+input[disabled],select[disabled],textarea[disabled],input[readonly],select[readonly],textarea[readonly]{ padding:3px; background:#ddd; border:1px solid; cursor:not-allowed; }
+/* Removes inner padding and search cancel button in S5, Chrome on OS X */
+input[type='search']::-webkit-search-decoration,input[type='search']::-webkit-search-cancel-button{ -webkit-appearance:none; }
+button,input,select,textarea{ vertical-align:middle; }
+button,input{ line-height:normal; }
+button,input[type='button'],input[type='reset'],input[type='submit']{ cursor:pointer; -webkit-appearance:button; }
+/* Removes number spinner in Webkit browsers */
+input[type='number']::-webkit-inner-spin-button,input[type='number']::-webkit-outer-spin-button { margin:0; -webkit-appearance:none; }
+/* Default appearance of <button> is to match Firefox <input type="button"> */
+button{ padding:0 .45em; font-size:1.2rem; background:#f5f5f5; border:1px solid #a6a6a6; border-radius:.3em; background:linear-gradient(to bottom,#fff 0%,#f5f5f5 49%,#ececec 50%,#f2f2f2 100%); filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff',endColorstr='#f2f2f2',GradientType=0); background:-webkit-linear-gradient(top,#fff 0%,#f5f5f5 49%,#ececec 50%,#f2f2f2 100%); }
+/* Finicky placeholder text colors */
+/*input[type='email']::-webkit-input-placeholder{ color:#404445 !important; }
+input[type='email']:-moz-placeholder{ color:#404445 !important; }
+input[type='email']::-moz-placeholder{ color:#404445 !important; }
+input[type='email']:-ms-input-placeholder{ color:#404445 !important; }*/
+/* Make placeholder text fade-out after focus - http://css-tricks.com/hang-on-placeholders/ */
+[placeholder]:focus::-webkit-input-placeholder{ transition:opacity 0.5s 0.5s ease; opacity:0; }
+
+/* Tables */
+table{ max-width:100%; border-collapse:collapse; border-spacing:0; }
+th,td{ text-align:left; }
+th{ font-weight:bold; }
+
+/* Miscellaneous conveniences */
+.col{ float:left; }
+.bold{ font-weight:bold; }
+.caps{ text-transform:uppercase; }
+/* Use <mark>...</mark> to show highlighted text */
+mark{ padding:.125em .25em; background-color:#ff0; border:1px solid #cc0; border-radius:.25em; }
+.hide{ display:none; }
+.show{ display:block; }
+.invisible{ visibility:hidden; }
+.italics{ font-style:italic; }
+/* Use the best ampersand available - http://simplebits.com/notebook/2008/08/14/ampersands-2/ */
+span.amp{ font-family:Baskerville,'Goudy Old Style',palatino,'Book Antiqua',serif; font-size:110%; font-style:italic; }
+.pull-left{ float:left; }
+.pull-right{ float:right; }
+/*img.pull-left{ margin:0 1.5em 1em 0; }
+img.pull-right{ margin: 0 0 1em 1.5em; }*/
+.align-center{ text-align:center; }
+.align-left{ text-align:left; }
+.align-right{ text-align:right; }
+
+/* Clear floats */
+.group:before,.group:after{ content:''; display:table; }
+.group:after{ clear:both; }
+
+/* Prevents modern browsers from displaying 'audio' without controls, also removes excess height in iOS5 devices */
+audio:not([controls]){ display:none; height:0; }
+
+/* Addresses styling for 'hidden' attribute not present in IE7/8/9, FF3, S4 Known issue: no IE6 support */
+[hidden]{ display:none; }
+
+/* Background noise - http://www.mightymeta.co.uk/css-noise/ */
+.noise { z-index:1; }
+.noise:before,.body-noise:before { position:absolute; top:0; bottom:0; left:0; right:0; content:''; z-index:-1; background-image:url(data:image/png;base64,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); }
+
+
+/* Various font stacks */
+/* The best Helvetica 
+font-family: 'HelveticaNeue-Light', 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; font-weight: 300;*/
+
+/* Times New Roman-based stack 
+font-family: Cambria, 'Hoefler Text', Utopia, 'Liberation Serif', 'Nimbus Roman No9 L Regular', Times, 'Times New Roman', serif;*/
+
+/* Modern Georgia-based serif stack 
+font-family: Constantia, 'Lucida Bright', Lucidabright, 'Lucida Serif', Lucida, 'DejaVu Serif', 'Bitstream Vera Serif', 'Liberation Serif', Georgia, serif;*/
+
+/* Traditional Garamond-based serif stack 
+font-family: 'Palatino Linotype', Palatino, Palladio, 'URW Palladio L', 'Book Antiqua', Baskerville, 'Bookman Old Style', 'Bitstream Charter', 'Nimbus Roman No9 L', Garamond, 'Apple Garamond', 'ITC Garamond Narrow', 'New Century Schoolbook', 'Century Schoolbook', 'Century Schoolbook L', Georgia, serif;*/
+
+/* Helvetica/Arial-based sans serif stack 
+font-family: Frutiger, 'Frutiger Linotype', Univers, Calibri, 'Gill Sans', 'Gill Sans MT', 'Myriad Pro', Myriad, 'DejaVu Sans Condensed', 'Liberation Sans', 'Nimbus Sans L', Tahoma, Geneva, 'Helvetica Neue', Helvetica, Arial, sans-serif;*/
+
+/* Verdana-based sans serif stack 
+font-family: Corbel, 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', 'DejaVu Sans', 'Bitstream Vera Sans', 'Liberation Sans', Verdana, 'Verdana Ref', sans-serif;*/
+
+/* Trebuchet-based sans serif stack 
+font-family: 'Segoe UI', Candara, 'Bitstream Vera Sans', 'DejaVu Sans', 'Bitstream Vera Sans', 'Trebuchet MS', Verdana, 'Verdana Ref', sans-serif;*/
+
+/* Impact-based sans serif stack 
+font-family: Impact, Haettenschweiler, 'Franklin Gothic Bold', Charcoal, 'Helvetica Inserat', 'Bitstream Vera Sans Bold', 'Arial Black', sans-serif;*/
+
+/* Monospace stack 
+font-family: Consolas, 'Andale Mono WT', 'Andale Mono', 'Lucida Console', 'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Liberation Mono', 'Nimbus Mono L', Monaco, 'Courier New', Courier, monospace;*/
+
+
+/* Mobile device media queries */
+/* Smartphones (portrait and landscape) 
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {}*/
+
+/* Smartphones (landscape) 
+@media only screen and (min-width: 321px) {}*/
+
+/* Smartphones (portrait) 
+@media only screen and (max-width: 320px) {}*/
+
+/* iPads (portrait and landscape) 
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {}*/
+
+/* iPads (landscape) 
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {}*/
+
+/* iPads (portrait) 
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {}*/
+
+/* Desktops and laptops 
+@media only screen and (min-width: 1224px) {}*/
+
+/* Large screens 
+@media only screen and (min-width: 1824px) {}*/

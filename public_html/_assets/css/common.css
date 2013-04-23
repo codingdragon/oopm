@@ -1,0 +1,44 @@
+/* Overwriting base.css ***************************************************************************/
+body { color: #4c4c4c; font-weight: bold; font-size: 18px; font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif; background: #fff url(../img/bkg_pattern.png); }
+
+#page { margin: 0 auto; padding: 0 3% 40px; max-width: 800px; border: 20px solid #002d62; border-width: 20px; background: #fff; }
+
+a { text-decoration: none; color: #002d62; transition: color ease .4s; }
+a:hover { color: #4c4c4c; }
+
+header { margin-bottom: 20px; padding: 40px 0; }
+header img { float: right; }
+header img:first-child { float: left; }
+
+form { margin-top: 40px; padding: 40px 0 0; border-top: 1px solid #000; }
+form:first-child { margin-top: 0; border-top: none; }
+
+.form-nav { margin: 0 0 40px; list-style: none; }
+
+.mandatory-info { padding: 0 0 40px; border-bottom: 1px solid #000; }
+
+.global { display: none; }
+
+.form-content { display: none; padding: 40px 0 30px; border-bottom: 1px solid #000; }
+
+.required { top: 4px; color: #f00; font-size: 150%; }
+
+label { display: block; }
+
+select,textarea,input[type='color'],input[type='date'],input[type='datetime'],input[type='datetime-local'],
+input[type='email'],input[type='month'],input[type='number'],input[type='password'],input[type='search'],
+input[type='tel'],input[type='text'],input[type='time'],input[type='week'],input[type='url'] { padding: 10px; width: 100%; font-size: 24px; font-family: Consolas, 'Andale Mono WT', 'Andale Mono', 'Lucida Console', 'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Liberation Mono', 'Nimbus Mono L', Monaco, 'Courier New', Courier, monospace; border-radius: 4px; border-color: #666; box-shadow: inset 1px 1px 6px rgba(0,0,0,.4); }
+
+input[type='checkbox'] { margin: 6px 3px 0 0; }
+
+textarea { min-height: 8em; }
+
+input[type='submit'] { padding: 10px 20px; text-transform: uppercase; font-size: 36px; }
+
+.duplicate i { top: -2px; font-style: normal; font-weight: normal; font-size: 60px; line-height: 1; font-family: 'entypo'; vertical-align: middle; }
+
+@media only screen and (max-width: 400px) {
+  header { text-align: center; }
+  header img { float: none; }
+  header img:first-child { margin-bottom: 20px; float: none; }
+}

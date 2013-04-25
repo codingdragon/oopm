@@ -49,6 +49,9 @@ $('.btn-add').on('click', function(){
   //create the new element via clone(), and manipulate it's ID using newNum value
   var elem = $('#'+e+n);
   var newElem = elem.clone().attr('id', e+num);
+  var fileName = 'site-file-'+n+'[]';
+  var file = newElem.find("input:file").attr({id: fileName, name: fileName}); //update the file IDs
+  console.log('file name: '+file.attr('name'));
   
   //insert the new element after the last "duplicate"
   elem.after(newElem);

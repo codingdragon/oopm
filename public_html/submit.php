@@ -9,25 +9,54 @@ class Submit{
   public function checkPost($_POST){
     
     echo "User Info<br>";
-      echo "-----------------------------------------------<br>";
+    echo "-----------------------------------------------<br>";
     echo "User Name: $_POST[user_name]<br>";
     echo "User Email: $_POST[user_email]<br>";
     echo "The Project: $_POST[the_project]<br>";
     echo "Due Date: $_POST[due_date]<br><br>";
     
-    if($_POST['web-change'] == 'on'){
-      
+    if($_POST['web-change'] == 'on'){      
       $format_ary = array();
+      
+      //$k is the name of the form element
       foreach($_POST['site'] as $k => $v){
         //echo "$k => $v<br>";
+        // $v is an arry, $x represent index 0, 1, 2..., $y is the form data
+        if(is_array($v)){
+          foreach($v as $x => $y){
+            //echo "-------$x => $y<br>";
 
-        foreach($v as $x => $y){
-          //echo "-------$x => $y<br>";
-          $format_ary[$x][$k] = $y;
+            /**
+             * since our form element is an array
+             * array is reformatted to display correctly
+             * in their correct order
+             */
+            $format_ary[$x][$k] = $y;
+            
+            $file = 'site-file-'.$x; //name of file element in the form            
+            if(!empty($_FILES[$file])){
+              foreach ($_FILES[$file] as $f_key => $f_ary){
+                //echo "$f_key => $f_ary<br>";
+                
+                if($f_key == 'name'){
+                  if(is_array($f_ary)){
+                    foreach($f_ary as $f_index => $f_data){
+                      //echo "-------->$f_index => $f_data<br>";
+                      
+                      $format_ary[$x]["file_".$f_key."_".$f_index] = $f_data;
+                    }
+                  }
+                  //echo "<br>";
+                }
+              }
+            }
+          }
         }
       }
       
-      echo "Number of Web Change(s): ".count($format_ary)."<br>";
+      $forms = count($format_ary);
+      
+      echo "Number of Web Change(s): ".$forms."<br>";
       echo "-----------------------------------------------<br>";
       self::display($format_ary);
     }

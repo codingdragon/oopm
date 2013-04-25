@@ -1,5 +1,7 @@
 <?php 
 
+define('UPLOAD_DIR', 'uploads/');
+
 class Submit{
 
   public function __construct(){
@@ -21,7 +23,7 @@ class Submit{
       //$k is the name of the form element
       foreach($_POST['site'] as $k => $v){
         //echo "$k => $v<br>";
-        // $v is an arry, $x represent index 0, 1, 2..., $y is the form data
+        // $v is an array, $x represent index 0, 1, 2..., $y is the form data
         if(is_array($v)){
           foreach($v as $x => $y){
             //echo "-------$x => $y<br>";
@@ -32,29 +34,24 @@ class Submit{
              * in their correct order
              */
             $format_ary[$x][$k] = $y;
-            
-            $file = 'site-file-'.$x; //name of file element in the form            
-            if(!empty($_FILES[$file])){
-              foreach ($_FILES[$file] as $f_key => $f_ary){
-                //echo "$f_key => $f_ary<br>";
-                
-                if($f_key == 'name'){
-                  if(is_array($f_ary)){
-                    foreach($f_ary as $f_index => $f_data){
-                      //echo "-------->$f_index => $f_data<br>";
-                      
-                      $format_ary[$x]["file_".$f_key."_".$f_index] = $f_data;
-                    }
-                  }
-                  //echo "<br>";
-                }
-              }
-            }
           }
         }
       }
       
       $forms = count($format_ary);
+      
+      for($i = 0; $i < $forms; $i++){
+        $file = 'site-file-'.$i; //name of file element in the form
+        //echo "file: $file<br>";
+        if(!empty($_FILES[$file])){
+          foreach($_FILES[$file][name] as $f_key => $f_data){
+            //echo "$f_key => $f_data<br>";            
+            $format_ary[$i]["file_".$f_key] = $f_data;
+            move_uploaded_file($_FILES[$file][tmp_name][$f_key], UPLOAD_DIR . $f_data);
+          }  
+          //echo "<br>"; 
+        }
+      }
       
       echo "Number of Web Change(s): ".$forms."<br>";
       echo "-----------------------------------------------<br>";

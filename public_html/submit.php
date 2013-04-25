@@ -41,7 +41,7 @@ class Submit{
       $forms = count($format_ary);
       
       for($i = 0; $i < $forms; $i++){
-        $file = 'site-file-'.$i; //name of file element in the form
+        $file = 'site-file_'.$i; //name of file element in the form
         //echo "file: $file<br>";
         if(!empty($_FILES[$file])){
           foreach($_FILES[$file][name] as $f_key => $f_data){

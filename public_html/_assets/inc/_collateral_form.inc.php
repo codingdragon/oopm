@@ -24,7 +24,7 @@
     <label for="collateral[desc][]">Brief description:</label> 
     <textarea id="collateral[desc][]" name="collateral[desc][]" placeholder="The description..."></textarea>
   </p>
-  <p><label for="collateral[file][]">Upload file(s):</label> <input type="file" id="collateral[file][]" name="collateral[file][]" multiple></p>
+  <p><label for="collateral-files">Upload file(s):</label> <input type="file" id="collateral-files_0[]" name="collateral-files_0[]" multiple></p>
 </div><!-- /.new-collateral -->
 <div class="new-collateral-btn hide">
   <input id="new-collateral_btn-add" class="btn-add" type="button" value="Add Collateral Piece">

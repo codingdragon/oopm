@@ -20,7 +20,7 @@
     <label for="email[desc][]">Image and/or theme suggestions:</label> 
     <textarea id="email[desc][]" name="email[desc][]" placeholder="The suggestions..."></textarea>
   </p>
-  <p><label for="email[file][]">Upload file(s):</label> <input type="file" id="email[file][]" name="email[file][]" multiple></p>
+  <p><label for="email-files">Upload file(s):</label> <input type="file" id="email-files_0[]" name="email-files_0[]" multiple></p>
 </div><!-- /.email-blast -->
 <div class="email-blast-btn hide">
   <input id="email-blast_btn-add" class="btn-add" type="button" value="Add Email Blast">

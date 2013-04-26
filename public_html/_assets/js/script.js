@@ -56,7 +56,7 @@ $('.btn-add').on('click', function(){
   var fileName = file_str+'_'+n+'[]'; //create a new file name and make sure to contain brackets to allow for multiple uploads
   var file = newElem.find("input:file").attr({id: fileName, name: fileName}); //update the file id and name
   
-  console.log('file name: '+file.attr('name'));
+  //console.log('file name: '+file.attr('name'));
   
   //insert the new element after the last "duplicate"
   elem.after(newElem);

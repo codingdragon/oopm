@@ -40,7 +40,7 @@
     <label for="print[desc][]">Brief description:</label> 
     <textarea id="print[desc][]" name="print[desc][]" placeholder="The description..."></textarea>
   </p>
-  <p><label for="print[file][]">Upload file(s):</label> <input type="file" id="print[file][]" name="print[file][]" multiple></p>
+  <p><label for="print-files">Upload file(s):</label> <input type="file" id="print-files_0[]" name="print-files_0[]" multiple></p>
 </div><!-- /.print-ad -->
 <div class="print-ad-btn hide">
   <input id="print-ad_btn-add" class="btn-add" type="button" value="Add Print Ad">

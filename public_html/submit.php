@@ -8,6 +8,12 @@ class Submit{
 
   }
 
+  /**
+   * check the user post data
+   * 
+   * @param $_POST
+   * @return none
+   */
   public function checkPost($_POST){
     
     echo "User Info<br>";
@@ -18,102 +24,46 @@ class Submit{
     echo "Due Date: $_POST[due_date]<br><br>";
     
     if($_POST['web-change'] == 'on'){      
-      $format_ary = array();
-      
-      //$k is the name of the form element
-      foreach($_POST['site'] as $k => $v){
-        //echo "$k => $v<br>";
-        // $v is an array, $x represent index 0, 1, 2..., $y is the form data
-        if(is_array($v)){
-          foreach($v as $x => $y){
-            //echo "-------$x => $y<br>";
-
-            /**
-             * since our form element is an array
-             * array is reformatted to display correctly
-             * in their correct order
-             */
-            $format_ary[$x][$k] = $y;
-          }
-        }
-      }
-      
-      $forms = count($format_ary);
-      
-      for($i = 0; $i < $forms; $i++){
-        $file = 'site-file_'.$i; //name of file element in the form
-        //echo "file: $file<br>";
-        if(!empty($_FILES[$file])){
-          foreach($_FILES[$file][name] as $f_key => $f_data){
-            //echo "$f_key => $f_data<br>";            
-            $format_ary[$i]["file_".$f_key] = $f_data;
-            move_uploaded_file($_FILES[$file][tmp_name][$f_key], UPLOAD_DIR . $f_data);
-          }  
-          //echo "<br>"; 
-        }
-      }
-      
-      echo "Number of Web Change(s): ".$forms."<br>";
+      $forms = self::getFormData('site', 'site-files');      
+      echo "Number of Web Change(s): ".count($forms)."<br>";
       echo "-----------------------------------------------<br>";
-      self::display($format_ary);
+      self::display($forms);
     }
     
-    if($_POST['print-ad'] == 'on'){
-      $format_ary = array();
-      foreach($_POST['print'] as $k => $v){
-        //echo "$k => $v<br>";
-      
-        foreach($v as $x => $y){
-          //echo "-------$x => $y<br>";
-          $format_ary[$x][$k] = $y;
-        }
-      }
-      
-      echo "Number of Print Ad(s): ".count($format_ary)."<br>";
+    if($_POST['print-ad'] == 'on'){      
+      $forms = self::getFormData('print', 'print-files');      
+      echo "Number of Print Ad(s): ".count($forms)."<br>";
       echo "-----------------------------------------------<br>";
-      self::display($format_ary);
+      self::display($forms);
     }
     
     if($_POST['web-ad'] == 'on'){
-      $format_ary = array();
-      foreach($_POST['web'] as $k => $v){      
-        foreach($v as $x => $y){
-          $format_ary[$x][$k] = $y;
-        }
-      }
-      
-      echo "Number of Web Ad(s): ".count($format_ary)."<br>";
+      $forms = self::getFormData('web', 'web-files');   
+      echo "Number of Web Ad(s): ".count($forms)."<br>";
       echo "-----------------------------------------------<br>";
-      self::display($format_ary);
+      self::display($forms);
     }
     
     if($_POST['new-collateral'] == 'on'){
-      $format_ary = array();
-      foreach($_POST['collateral'] as $k => $v){      
-        foreach($v as $x => $y){
-          $format_ary[$x][$k] = $y;
-        }
-      }
-      
-      echo "Number of Collateral Piece(s): ".count($format_ary)."<br>";
+      $forms = self::getFormData('collateral', 'collateral-files');      
+      echo "Number of Collateral Piece(s): ".count($forms)."<br>";
       echo "-----------------------------------------------<br>";
-      self::display($format_ary);
+      self::display($forms);
     }
     
     if($_POST['email-blast'] == 'on'){
-      $format_ary = array();
-      foreach($_POST['email'] as $k => $v){      
-        foreach($v as $x => $y){
-          $format_ary[$x][$k] = $y;
-        }
-      }
-      
-      echo "Number of Email Blast(s): ".count($format_ary)."<br>";
+      $forms = self::getFormData('email', 'email-files');
+      echo "Number of Email Blast(s): ".count($forms)."<br>";
       echo "-----------------------------------------------<br>";
-      self::display($format_ary);
+      self::display($forms);
     }
   }
 
+  /**
+   * display the form data
+   * 
+   * @param array $ary
+   */
   public function display(array $ary = null){
     if(!empty($ary)){
       foreach($ary as $k => $v){
@@ -126,7 +76,49 @@ class Submit{
       }
     }
   }
-
+  
+  /**
+   * get the form data by its $key and the files by $file_key
+   * 
+   * @param string $key
+   * @param string $file_key
+   * @return array
+   */
+  public function getFormData($key, $file_key){
+    $form_data = array();
+    
+    foreach($_POST[$key] as $k => $v){
+      if(is_array($v)){
+        //echo "$k => $v<br>";
+        // $v is an array, $x represent index 0, 1, 2..., $y is the form data
+        foreach($v as $x => $y){
+          //echo "-------$x => $y<br>";
+          
+          /**
+           * since our form data is an array
+           * form is reformatted to display correctly
+           * in their correct order
+           */
+          $form_data[$x][$k] = $y;
+        }
+      }
+    }
+    
+    $forms = count($form_data);    
+    for($i = 0; $i < $forms; $i++){
+      $file = $file_key.'_'.$i; //name of file element in the form
+      //echo "file: $file<br>";
+      if(!empty($_FILES[$file])){
+        foreach($_FILES[$file][name] as $f_key => $f_data){
+          //echo "$f_key => $f_data<br>";
+          $form_data[$i]["file_".$f_key] = $f_data;
+          move_uploaded_file($_FILES[$file][tmp_name][$f_key], UPLOAD_DIR . $f_data);
+        }
+        //echo "<br>";
+      }
+    }
+    return $form_data;
+  }
 }
 
 ?>

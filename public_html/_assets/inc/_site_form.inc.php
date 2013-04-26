@@ -10,7 +10,7 @@
     <?php //Please note that site_url value must be a valid to pass validation or form won't submit properly ?>
     <input type="url" id="site[url][]" name="site[url][]" class="is-required" value="http://www.mysite.com" placeholder="http://www.mysite.com">
   </p>
-  <p><label for="site-files">Upload file(s):</label> <input type="file" id="site-file_0[]" name="site-file_0[]" multiple></p>
+  <p><label for="site-files">Upload file(s):</label> <input type="file" id="site-files_0[]" name="site-files_0[]" multiple></p>
 </div><!-- /.web-changes -->
 <div class="web-change-btn hide">
   <input id="web-change_btn-add" class="btn-add" type="button" value="Add Website Change">

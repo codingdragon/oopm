@@ -31,7 +31,7 @@
     <label for="web[desc][]">Brief description:</label> 
     <textarea id="web[desc][]" name="web[desc][]" placeholder="The description..."></textarea>
   </p>
-  <p><label for="web[desc][]">Upload file(s):</label> <input type="file" id="web[desc][]" name="web[desc][]" multiple></p>
+  <p><label for="web-files">Upload file(s):</label> <input type="file" id="web-files_0[]" name="web-files_0[]" multiple></p>
 </div><!-- /.web-ad -->
 <div class="web-ad-btn hide">
   <input id="web-ad_btn-add" class="btn-add" type="button" value="Add Web Ad">
